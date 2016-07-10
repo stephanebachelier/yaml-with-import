@@ -17,8 +17,7 @@ class YamlWithImport {
                     delete json.imports;
                     tmp = yaml.load(yamlDoc.resource);
                     if (!!json && json != null) {
-                        tmp = _.assignIn(json, tmp);
-                        tmp = _.defaultsDeep(json, tmp);
+                        tmp = _.merge(json, tmp);
                     }
                 });
                 importedFile = tmp;
