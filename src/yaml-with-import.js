@@ -18,6 +18,7 @@ class YamlWithImport {
                     tmp = yaml.load(yamlDoc.resource);
                     if (!!json && json != null) {
                         tmp = _.assignIn(json, tmp);
+                        tmp = _.defaultsDeep(json, tmp);
                     }
                 });
                 importedFile = tmp;
