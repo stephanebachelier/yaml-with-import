@@ -51,7 +51,7 @@ var YamlWithImport = function () {
                     importedFile = this.read(json.imports[0].resource);
                     if (!!importedFile && importedFile != null) {
                         delete json.imports;
-                        importedFile = _lodash2.default.assignIn(importedFile, json);
+                        importedFile = _lodash2.default.merge(importedFile, json);
                     }
                 }
 

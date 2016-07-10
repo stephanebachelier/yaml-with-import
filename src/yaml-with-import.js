@@ -25,7 +25,7 @@ class YamlWithImport {
                 importedFile = this.read(json.imports[0].resource);
                 if (!!importedFile && importedFile != null) {
                     delete json.imports;
-                    importedFile =  _.assignIn(importedFile, json);
+                    importedFile =  _.merge(importedFile, json);
                 }
             }
 
