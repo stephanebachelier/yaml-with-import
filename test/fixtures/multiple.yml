@@ -1,0 +1,8 @@
+imports:
+  - {resource: test/fixtures/test3.yml}
+  - {resource: test/fixtures/test4.yml}
+  - {resource: test/fixtures/test5.yml}
+
+asddsa:
+  ffff: assss
+test: 11111

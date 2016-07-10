@@ -1,0 +1,5 @@
+imports:
+  - {resource: test/fixtures/test.yml}
+
+woohoo:
+  type: nested_1

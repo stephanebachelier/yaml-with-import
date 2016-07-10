@@ -1,0 +1,9 @@
+template_engine:
+  engine: hbs
+  layout: src/view/layouts
+
+route:
+  blogs:
+    path: /
+    defaults: { controller: Blog:index }
+    methods: [post, put]

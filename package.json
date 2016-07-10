@@ -1,0 +1,35 @@
+{
+  "name": "@jaylensoeur/yaml-with-import",
+  "version": "1.0.0",
+  "description": "loads yaml file with support for nested imports",
+  "main": "dist/express-yaml-config-loader.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --compilers js:babel-register test/",
+    "build": "./node_modules/.bin/babel src/  --out-dir dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaylensoeur/express-yaml-loader.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaylensoeur/express-yaml-loader/issues"
+  },
+  "homepage": "https://github.com/jaylensoeur/express-yaml-loader#readme",
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-register": "^6.9.0",
+    "eslint": "^3.0.1",
+    "mocha": "^2.5.3",
+    "mocha-cli": "^1.0.1",
+    "should": "^9.0.2"
+  },
+  "dependencies": {
+    "fs": "0.0.2",
+    "lodash": "^4.13.1",
+    "q": "^1.4.1",
+    "yamljs": "^0.2.8"
+  }
+}
