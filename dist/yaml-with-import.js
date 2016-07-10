@@ -4,8 +4,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _yamljs = require('yamljs');
@@ -34,24 +32,30 @@ var YamlWithImportLoader = function () {
          * @returns {Object}
          */
         value: function read(fileName) {
-            var _this = this;
-
-            var json = _yamljs2.default.load(__dirname + '/' + fileName);
-            if (!!json.imports) {
-                var _ret = function () {
-                    var importedFile = {};
-                    _lodash2.default.forEach(json.imports, function (yamlDoc) {
-                        importedFile = _this.read(yamlDoc.resource);
+            var json = _yamljs2.default.load(fileName);
+            if (!!json && json !== null && !!json.imports) {
+                var importedFile = {};
+                if (json.imports.length > 1) {
+                    (function () {
+                        var tmp = {};
+                        _lodash2.default.forEach(json.imports, function (yamlDoc) {
+                            delete json.imports;
+                            tmp = _yamljs2.default.load(yamlDoc.resource);
+                            if (!!json && json != null) {
+                                tmp = _lodash2.default.assign(json, tmp);
+                            }
+                        });
+                        importedFile = tmp;
+                    })();
+                } else {
+                    importedFile = this.read(json.imports[0].resource);
+                    if (!!importedFile && importedFile != null) {
                         delete json.imports;
-                        _lodash2.default.assign(importedFile, json);
-                    });
+                        importedFile = _lodash2.default.assignIn(importedFile, json);
+                    }
+                }
 
-                    return {
-                        v: importedFile
-                    };
-                }();
-
-                if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+                return importedFile;
             }
 
             return json;
