@@ -6,7 +6,7 @@
 
 ## Install
 ````
-npm i @jaylensoeur/yaml-with-import --save
+npm i yaml-with-import --save
 ````
 
 ##Example

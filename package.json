@@ -1,5 +1,5 @@
 {
-  "name": "@jaylensoeur/yaml-with-import",
+  "name": "yaml-with-import",
   "version": "1.0.0",
   "description": "loads yaml file with support for nested imports",
   "main": "dist/yaml-with-import.js",
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/jaylensoeur/yaml-with-import.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jaylensoeur/yaml-with-import/issues"
   },
