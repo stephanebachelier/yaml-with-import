@@ -51,7 +51,7 @@ route:
 es6
 
 ````
-import Yaml from '@jaylensoeur/yaml-with-import';
+import Yaml from 'yaml-with-import';
 
 const yaml = new Yaml();
 yaml.read('file.yml');
@@ -59,7 +59,7 @@ yaml.read('file.yml');
 
 es5
 ````
-var Yaml = require('@jaylensoeur/yaml-with-import').default;
+var Yaml = require('yaml-with-import').default;
 
 var yaml = new Yaml();
 yaml.read('file.yml');
