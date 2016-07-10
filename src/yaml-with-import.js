@@ -1,7 +1,7 @@
 import yaml from 'yamljs';
 import _ from 'lodash';
 
-class YamlWithImportLoader {
+class YamlWithImport {
 
     /**
      * @param fileName
@@ -37,4 +37,4 @@ class YamlWithImportLoader {
     }
 }
 
-export default YamlWithImportLoader;
+export default YamlWithImport;

@@ -18,12 +18,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var YamlWithImportLoader = function () {
-    function YamlWithImportLoader() {
-        _classCallCheck(this, YamlWithImportLoader);
+var YamlWithImport = function () {
+    function YamlWithImport() {
+        _classCallCheck(this, YamlWithImport);
     }
 
-    _createClass(YamlWithImportLoader, [{
+    _createClass(YamlWithImport, [{
         key: 'read',
 
 
@@ -62,7 +62,7 @@ var YamlWithImportLoader = function () {
         }
     }]);
 
-    return YamlWithImportLoader;
+    return YamlWithImport;
 }();
 
-exports.default = YamlWithImportLoader;
+exports.default = YamlWithImport;
