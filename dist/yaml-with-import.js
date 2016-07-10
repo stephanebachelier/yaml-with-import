@@ -42,7 +42,7 @@ var YamlWithImport = function () {
                             delete json.imports;
                             tmp = _yamljs2.default.load(yamlDoc.resource);
                             if (!!json && json != null) {
-                                tmp = _lodash2.default.assign(json, tmp);
+                                tmp = _lodash2.default.assignIn(json, tmp);
                             }
                         });
                         importedFile = tmp;
