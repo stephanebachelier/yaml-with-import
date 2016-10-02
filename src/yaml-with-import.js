@@ -3,6 +3,17 @@ import _ from 'lodash';
 
 class YamlWithImport {
 
+    constructor(rootPath) {
+        this.rootPath = rootPath;
+    }
+
+    setRootPath(rootPath) {
+        this.rootPath = rootPath;
+    }
+
+    getRootPath() {
+        return this.rootPath;
+    }
     /**
      * @param fileName
      * @returns {Object}
@@ -22,7 +33,11 @@ class YamlWithImport {
                 });
                 importedFile = tmp;
             } else {
-                importedFile = this.read(json.imports[0].resource);
+                if (!!this.rootPath) {
+                    importedFile = this.read(this.rootPath + json.imports[0].resource);
+                } else {
+                    importedFile = this.read(json.imports[0].resource);
+                }
                 if (!!importedFile) {
                     delete json.imports;
                     importedFile = _.merge(importedFile, json);

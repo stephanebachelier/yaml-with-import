@@ -19,18 +19,29 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var YamlWithImport = function () {
-    function YamlWithImport() {
+    function YamlWithImport(rootPath) {
         _classCallCheck(this, YamlWithImport);
+
+        this.rootPath = rootPath;
     }
 
     _createClass(YamlWithImport, [{
-        key: 'read',
-
-
+        key: 'setRootPath',
+        value: function setRootPath(rootPath) {
+            this.rootPath = rootPath;
+        }
+    }, {
+        key: 'getRootPath',
+        value: function getRootPath() {
+            return this.rootPath;
+        }
         /**
          * @param fileName
          * @returns {Object}
          */
+
+    }, {
+        key: 'read',
         value: function read(fileName) {
             var json = _yamljs2.default.load(fileName);
             if (!!json && !!json.imports) {
@@ -48,7 +59,11 @@ var YamlWithImport = function () {
                         importedFile = tmp;
                     })();
                 } else {
-                    importedFile = this.read(json.imports[0].resource);
+                    if (!!this.rootPath) {
+                        importedFile = this.read(this.rootPath + json.imports[0].resource);
+                    } else {
+                        importedFile = this.read(json.imports[0].resource);
+                    }
                     if (!!importedFile) {
                         delete json.imports;
                         importedFile = _lodash2.default.merge(importedFile, json);
