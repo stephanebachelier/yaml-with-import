@@ -43,6 +43,8 @@ var YamlWithImport = function () {
     }, {
         key: 'read',
         value: function read(fileName) {
+            var _this = this;
+
             var json = _yamljs2.default.load(fileName);
             if (!!json && !!json.imports) {
                 var importedFile = {};
@@ -51,7 +53,11 @@ var YamlWithImport = function () {
                         var tmp = {};
                         _lodash2.default.forEach(json.imports, function (yamlDoc) {
                             delete json.imports;
-                            tmp = _yamljs2.default.load(yamlDoc.resource);
+                            if (!!_this.rootPath) {
+                                tmp = _yamljs2.default.load(_this.rootPath + yamlDoc.resource);
+                            } else {
+                                tmp = _yamljs2.default.load(yamlDoc.resource);
+                            }
                             if (!!json && json != null) {
                                 tmp = _lodash2.default.merge(json, tmp);
                             }
