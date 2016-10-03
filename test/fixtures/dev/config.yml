@@ -1,0 +1,10 @@
+imports:
+  - {resource: 'test/fixtures/config.yml'}
+  - {resource: 'test/fixtures/dev/service.yml'}
+
+server:
+  domain: 'dev.stylus.com'
+
+database:
+  type: 'mongodb'
+  connectionString: 'mongodb://marketplace.etaskr.localhost:27017/etaskr-development'

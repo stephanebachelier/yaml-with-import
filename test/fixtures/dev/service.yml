@@ -1,0 +1,5 @@
+services:
+  # Controllers
+  home_controller:
+    class: 'src/controller/HomeController'
+    arguments: ['@banana']

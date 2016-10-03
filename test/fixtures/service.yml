@@ -1,0 +1,8 @@
+services:
+  # Controllers
+  home_controller:
+    class: 'src/controller/HomeController'
+    arguments: ['@logger']
+
+  logger:
+    class: 'src/service/Logger'

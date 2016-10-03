@@ -54,10 +54,11 @@ var YamlWithImport = function () {
                         _lodash2.default.forEach(json.imports, function (yamlDoc) {
                             delete json.imports;
                             if (!!_this.rootPath) {
-                                tmp = _yamljs2.default.load(_this.rootPath + yamlDoc.resource);
+                                tmp = _this.read(_this.rootPath + yamlDoc.resource);
                             } else {
-                                tmp = _yamljs2.default.load(yamlDoc.resource);
+                                tmp = _this.read(yamlDoc.resource);
                             }
+
                             if (!!json && json != null) {
                                 tmp = _lodash2.default.merge(json, tmp);
                             }

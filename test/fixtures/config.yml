@@ -1,0 +1,20 @@
+imports:
+  - {resource: 'test/fixtures/service.yml'}
+  - {resource: 'test/fixtures/nested.yml'}
+
+server:
+  port: 4000
+
+session:
+  secret: 'keyboard cat'
+  resave: true
+  saveUninitialized: true
+
+theme:
+  template_engine: hbs
+  hbs:
+    extname: '.hbs'
+    layoutsDir: 'src/views'
+
+static_pages:
+  path: '/public/'

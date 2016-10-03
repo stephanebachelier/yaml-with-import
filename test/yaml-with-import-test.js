@@ -33,7 +33,6 @@ describe('express yaml config loader', () => {
         done();
     });
 
-
     it('yaml read with multiple import in one file expects multiple file to merge', (done) => {
         const json = yaml.read(`${__dirname}/fixtures/multiple.yml`);
         json.should.have.keys(

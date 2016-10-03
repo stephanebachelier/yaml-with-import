@@ -27,10 +27,11 @@ class YamlWithImport {
                 _.forEach(json.imports, (yamlDoc) => {
                     delete json.imports;
                     if (!!this.rootPath) {
-                        tmp = yaml.load(this.rootPath + yamlDoc.resource);
+                        tmp = this.read(this.rootPath + yamlDoc.resource);
                     } else {
-                        tmp = yaml.load(yamlDoc.resource);
+                        tmp = this.read(yamlDoc.resource);
                     }
+
                     if (!!json && json != null) {
                         tmp = _.merge(json, tmp);
                     }
