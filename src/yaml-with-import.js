@@ -1,4 +1,5 @@
 import yaml from 'yamljs';
+import path from 'path';
 import _ from 'lodash';
 
 class YamlWithImport {
@@ -27,7 +28,7 @@ class YamlWithImport {
                 _.forEach(json.imports, (yamlDoc) => {
                     delete json.imports;
                     if (!!this.rootPath) {
-                        tmp = this.read(this.rootPath + yamlDoc.resource);
+                        tmp = this.read(path.resolve(this.rootPath, yamlDoc.resource));
                     } else {
                         tmp = this.read(yamlDoc.resource);
                     }
@@ -39,7 +40,7 @@ class YamlWithImport {
                 importedFile = tmp;
             } else {
                 if (!!this.rootPath) {
-                    importedFile = this.read(this.rootPath + json.imports[0].resource);
+                    importedFile = this.read(path.resolve(this.rootPath, json.imports[0].resource));
                 } else {
                     importedFile = this.read(json.imports[0].resource);
                 }
